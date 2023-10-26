@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos Matriculados IFRN</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+</head>
+<body>
+    <main>
+        <h1>Alunos Matriculados no IFRN</h1>
+        <a href="{% url 'cadastro' %}" class="cadastrar">Cadastrar Aluno</a>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Cidade</th>
+                <th>Curso</th>
+                <th>Ações</th>
+            </tr>
+            {% for aluno in alunos %}
+            <tr>
+                <td> {{ aluno.nome }} </td>
+                <td> {{ aluno.email }} </td>
+                <td> {{ aluno.data_nascimento }} </td>
+                <td> {{ aluno.cidade }} </td>
+                <td> {{ aluno.curso }} </td>
+                <td>
+                    <a href="{% url 'editar' aluno.pk %}">Editar</a> 
+                    <a href="">Deletar</a> 
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+    
+</body>
+</html>

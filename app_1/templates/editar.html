@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Aluno</title>
+</head>
+<body>
+
+    <h1>Editando Aluno {{ aluno.nome }}!</h1>
+
+    <form action="{% url 'index' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" value="{{ aluno.nome }}">
+        <br>
+        <input type="text" value="{{ aluno.endereco }}">
+        <br>
+
+        <input type="text" value="{{ aluno.email }}">
+        <br>
+
+        <input type="text" value="{{ aluno.cidade }}">
+        <br>
+
+        <input type="text" value="{{ aluno.curso }}">
+
+        <button type="submit">Salvar</button>
+    </form>
+
+</body>
+</html>
